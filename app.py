@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, session, redirect
 import sqlite3
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 app.secret_key = "supersecretkey123"
 
 
@@ -277,3 +277,4 @@ def logout():
 # ---------------------------
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
+
