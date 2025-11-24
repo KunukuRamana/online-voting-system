@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Voting System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background: white;
+            width: 380px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+            text-align: center;
+            color: #333;
+            animation: fadeIn 0.9s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            color: #0072ff;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: none;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: 0.25s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        .admin { background: #007bff; color: white; }
+        .voter { background: #28a745; color: white; }
+        .results { background: #ffc107; color: black; }
+
+        footer {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Online Voting</h1>
+        <p>Select an option</p>
+
+        <a href="/admin_login_page"><button class="btn admin">Admin Login</button></a>
+        <a href="/voter_login_page"><button class="btn voter">Voter Login</button></a>
+        <a href="/results_page"><button class="btn results">View Results</button></a>
+    </div>
+
+    <footer>
+        © Built by <b>Ramana Kunuku</b>, 2025
+    </footer>
+
+</body>
+</html>

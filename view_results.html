@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Election Results</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #314755, #26a0da);
+            min-height: 100vh;
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            margin-top: 40px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 70%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+            color: #333;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+        }
+
+        th {
+            background: #26a0da;
+            padding: 15px;
+            font-size: 18px;
+            color: white;
+        }
+
+        td {
+            padding: 15px;
+            font-size: 17px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f2f2f2;
+        }
+
+        .winner-row {
+            background: gold !important;
+            font-weight: bold;
+            color: black;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .home { background: #333; }
+        .dashboard { background: #0d6efd; }
+        .logout { background: #ff4b2b; }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Election Results</h2>
+
+    <table>
+        <tr>
+            <th>Candidate</th>
+            <th>Total Votes</th>
+        </tr>
+
+        {% for id, name, votes in results %}
+            {% if votes == max_votes and votes != 0 %}
+                <tr class="winner-row">
+                    <td>{{ name }} ⭐ (Winner)</td>
+                    <td>{{ votes }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ votes }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    <div class="buttons">
+        <a href="/admin_dashboard_page"><button class="btn dashboard">Admin Dashboard</button></a>
+        <a href="/"><button class="btn home">Home</button></a>
+        <a href="/logout"><button class="btn logout">Logout</button></a>
+    </div>
+
+</body>
+</html>

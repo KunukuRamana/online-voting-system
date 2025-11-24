@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cast Your Vote</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            min-height: 100vh;
+            padding-bottom: 60px;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            color: #222;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .candidate-radio {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            transform: scale(1.4);
+            cursor: pointer;
+        }
+
+        button {
+            width: 250px;
+            padding: 12px;
+            margin-top: 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background: #1f4037;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background: #163b2f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+        .logout {
+            margin-top: 25px;
+        }
+
+        .logout button {
+            background: #ff4b2b;
+        }
+
+        .logout button:hover {
+            background: #e63a1e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Cast Your Vote</h2>
+
+    <form action="/submit_vote" method="POST">
+        <div class="container">
+
+            {% for id, name, position in candidates %}
+            <label class="card">
+                <input type="radio" name="candidate" value="{{ id }}" class="candidate-radio" required>
+                <h3>{{ name }}</h3>
+                <p>{{ position }}</p>
+            </label>
+            {% endfor %}
+
+        </div>
+
+        <button type="submit">Submit Vote</button>
+    </form>
+
+    <div class="logout">
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+</body>
+</html>

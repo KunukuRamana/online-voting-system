@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Candidate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8e6;
+            padding-top: 40px;
+            text-align: center;
+        }
+
+        .box {
+            width: 420px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #aaa;
+            text-align: left;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff9900;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 98%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff9900;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e08500;
+        }
+
+        .back {
+            margin-top: 15px;
+            display: block;
+            text-align: center;
+            color: #ff9900;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Add Candidate</h2>
+
+        <!-- ⭐ WORKING FORM (sends data to backend) -->
+        <form action="/add_candidate" method="POST">
+
+            <label>Candidate Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Position:</label>
+            <input type="text" name="position" required>
+
+            <label>Election ID:</label>
+            <input type="number" name="election_id" value="1" required>
+
+            <button type="submit" class="btn">Add Candidate</button>
+
+        </form>
+
+        <a href="/admin_dashboard_page" class="back">⬅ Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

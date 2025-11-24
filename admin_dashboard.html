@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
+            color: white;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            color: #2c5364;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .logout {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .logout button {
+            background: #ff4b2b;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logout button:hover {
+            background: #ff2b10;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        Admin Dashboard
+    </div>
+
+    <div class="container">
+
+        <a href="/create_election_page">
+            <div class="card">🗳️ Create Election</div>
+        </a>
+
+        <a href="/add_candidate_page">
+            <div class="card">👤 Add Candidate</div>
+        </a>
+
+        <a href="/manage_candidates">
+            <div class="card">🛠️ Manage Candidates</div>
+        </a>
+        <a href="/results_page">
+            <div class="card">📊 View Results</div>
+        </a>
+
+        <a href="/">
+            <div class="card">🏠 Home</div>
+        </a>
+
+    </div>
+
+    <div class="logout">
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+</body>
+</html>
